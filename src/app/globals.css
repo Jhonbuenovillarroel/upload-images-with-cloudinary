@@ -2,32 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.menu {
+  overflow: hidden;
+  animation: fadeIn 2s linear;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.abrir {
+  border: 1px solid blue;
+}
+
+.react-select-container .react-select-child__control {
+  background-color: rgb(10, 10, 10);
+  border: 1px solid rgb(50, 50, 50);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  cursor: text;
+}
+html.dark .react-select-container .react-select-child__control {
+  background-color: white;
+  border: 1px solid rgb(200, 200, 200);
 }
